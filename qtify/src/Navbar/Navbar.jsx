@@ -21,14 +21,7 @@ function Navbar({ searchData }) {
         searchData={searchData}
       />
       
-      <Button1 style={{
-        backgroundColor: 'black', 
-        color: " #34C94B", 
-        width: '170px', 
-        height: '47px', 
-        borderRadius: '12px',
-        fontSize:'20px'}}
-      >
+      <Button1>
         Give Feedback
       </Button1>
     </nav>

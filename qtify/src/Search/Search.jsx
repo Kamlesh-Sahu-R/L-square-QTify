@@ -8,6 +8,7 @@ import { ReactComponent as SearchIcon } from "../assets/search-icon.svg";
 //import { Tooltip } from "@mui/material";
 //import SearchIcon from "eslint"
 
+
 // const Listbox = styled("ul")(({ theme }) => ({
 //   width: "100%",
 //   margin: 0,
@@ -63,7 +64,7 @@ function Search({ searchData, placeholder }) {
   return (
     <div style={{ position: "relative" }}>
       <form
-        // className={styles.wrapper}
+         className={styles.wrapper}
         // onSubmit={(e) => {
         //   onSubmit(e, value);
         // }}
@@ -73,9 +74,9 @@ function Search({ searchData, placeholder }) {
         >
           <input
             // name="album"
-            // className={styles.search}
-            // placeholder={placeholder}
-            // required
+             className={styles.search}
+             placeholder={placeholder}
+             required
             // {...getInputProps()}
           />
         </div>

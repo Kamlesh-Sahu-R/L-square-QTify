@@ -1,11 +1,13 @@
 import React from "react";
+//import "@fontsource/poppins";
+import styles from "./Button.module.css"
 
 
-const Button1 = ({children, style, onClick, className, type = 'button'}) => {
+const Button1 = ({children, onClick, type = 'button'}) => {
 
     
     return(
-        <button style={style} onClick={onClick} className={className} type={type}>
+        <button  onClick={onClick} className={styles.feedback} type={type}>
             {children}
         </button>
     );

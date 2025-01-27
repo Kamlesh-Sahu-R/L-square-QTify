@@ -3,6 +3,7 @@ import './App.css';
 //import LogoQtify from './Logo/Logo';
 //mport Button1 from './Button/Button';
 import Navbar from './Navbar/Navbar';
+import Hero from './Hero/Hero';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
 
     <div className="App">
       <Navbar />
+      <Hero />
     </div>
   );
 }
