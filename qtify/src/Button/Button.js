@@ -3,11 +3,11 @@ import React from "react";
 import styles from "./Button.module.css"
 
 
-const Button1 = ({children, onClick, type = 'button'}) => {
+const Button1 = ({children, style, onClick, type = 'button'}) => {
 
     
     return(
-        <button  onClick={onClick} className={styles.feedback} type={type}>
+        <button  style={style} onClick={onClick} className={styles.feedback} type={type}>
             {children}
         </button>
     );

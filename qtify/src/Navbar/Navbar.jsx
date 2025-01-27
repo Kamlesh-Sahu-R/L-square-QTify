@@ -21,7 +21,7 @@ function Navbar({ searchData }) {
         searchData={searchData}
       />
       
-      <Button1>
+      <Button1 style={{cursor: 'pointer'}}>
         Give Feedback
       </Button1>
     </nav>
