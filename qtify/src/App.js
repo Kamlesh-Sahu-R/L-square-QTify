@@ -4,6 +4,8 @@ import './App.css';
 //mport Button1 from './Button/Button';
 import Navbar from './Navbar/Navbar';
 import Hero from './Hero/Hero';
+//import Card from './Card/Card';
+import Section from './Section/Section';
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />
+      <Section />
     </div>
   );
 }
