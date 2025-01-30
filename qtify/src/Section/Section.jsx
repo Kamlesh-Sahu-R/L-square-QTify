@@ -13,7 +13,7 @@ export default function Section() {
         axios.get('https://qtify-backend-labs.crio.do/albums/top')
             .then(response => {
                 setData(response.data);
-                console.log(response.data);
+                //console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
@@ -21,10 +21,17 @@ export default function Section() {
     }, []);
 
     return (
+        <>
         <SectionProd
           data={data}
           title={"Top Albums"}
-          />
+        />
+        <SectionProd
+          data={data}
+          title={"New Albums"}
+        />
+          
+        </>
     );
 }
 
