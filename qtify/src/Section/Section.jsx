@@ -5,12 +5,13 @@ import Card from "../Card/Card";
 import styles from "./Section.module.css";
 import axios from "axios";
 
-export default function Section() {
+export default function Section({title, url}) {
 
     const [data, setData] = useState([]);
+    //console.log(url);
     
     useEffect(() => {
-        axios.get('https://qtify-backend-labs.crio.do/albums/top')
+        axios.get(url)
             .then(response => {
                 setData(response.data);
                 //console.log(response.data);
@@ -18,20 +19,14 @@ export default function Section() {
             .catch(error => {
                 console.log(error);
             })
-    }, []);
+    },);
 
     return (
-        <>
+        
         <SectionProd
           data={data}
-          title={"Top Albums"}
+          title={title}
         />
-        <SectionProd
-          data={data}
-          title={"New Albums"}
-        />
-          
-        </>
     );
 }
 

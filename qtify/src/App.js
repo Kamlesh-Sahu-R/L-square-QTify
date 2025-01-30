@@ -7,6 +7,8 @@ import Hero from './Hero/Hero';
 //import Card from './Card/Card';
 import Section from './Section/Section';
 
+//const url='https://qtify-backend-labs.crio.do/albums/top';
+
 function App() {
   return (
     // <div className="App">
@@ -31,10 +33,14 @@ function App() {
       
     // </div>
 
+    
+
     <div className="App">
       <Navbar />
       <Hero />
-      <Section />
+      <Section  url={'https://qtify-backend-labs.crio.do/albums/top'} title={"Top Albums"}/>
+      <Section  url={'https://qtify-backend-labs.crio.do/albums/new'} title={"New Albums"}/>
+      
     </div>
   );
 }
