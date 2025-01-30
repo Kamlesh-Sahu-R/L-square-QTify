@@ -4,6 +4,7 @@ import { useState } from "react";
 import Card from "../Card/Card";
 import styles from "./Section.module.css";
 import axios from "axios";
+import Carousel from "../Carousel/Carousel";
 
 export default function Section({title, url}) {
 
@@ -19,7 +20,7 @@ export default function Section({title, url}) {
             .catch(error => {
                 console.log(error);
             })
-    },);
+    }, []);
 
     return (
         
@@ -41,7 +42,9 @@ function SectionProd({ title, data }) {
 
 
   return (
-    <div className={styles.section}>
+    <>
+    {!carouselToggle ? (
+      <div className={styles.section}>
       <div className={styles.header}>
         <h3>{title}</h3>
         <h4 className={styles.toggleText} onClick={handleToggle}>
@@ -50,16 +53,24 @@ function SectionProd({ title, data }) {
       </div>
     
         <div className={styles.cardsWrapper}>
-          
             <div className={styles.wrapper}>
               {data.map((ele) => (
                 <Card data={ele} />
               ))}
-            
             </div>
-          
         </div>
-     
     </div>
+    ):( <div className={styles.section}>
+           <div className={styles.header}>
+           <h3>{title}</h3>
+           <h4 className={styles.toggleText} onClick={handleToggle}>
+              {!carouselToggle ? "Collapse All" : "Show All"}
+          </h4>
+          </div>
+          <Carousel data={data} /> 
+        </div>
+      )}
+    </>
+    
   );
 }
