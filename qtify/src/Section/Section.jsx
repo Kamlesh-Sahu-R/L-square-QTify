@@ -5,11 +5,15 @@ import Card from "../Card/Card";
 import styles from "./Section.module.css";
 import axios from "axios";
 import Carousel from "../Carousel/Carousel";
+import FilterTabs from "../Filter/Filter";
 
-export default function Section({title, url}) {
+export default function Section({title, url, tab}) {
 
     const [data, setData] = useState([]);
+    
+
     //console.log(url);
+    //console.log(filters);
     
     useEffect(() => {
         axios.get(url)
@@ -22,22 +26,47 @@ export default function Section({title, url}) {
             })
     }, []);
 
+
+
     return (
         
         <SectionProd
           data={data}
           title={title}
+          tab={tab}
         />
     );
 }
 
-function SectionProd({ title, data }) {
+function SectionProd({ title, data, tab}) {
   
   const [carouselToggle, setCarouselToggle] = useState(true);
+  const [filters, setFilters] = useState([{ key: "all", label: "All" }]);
+  const [selectedFilterIndex, setSelectedFilterIndex] = useState(0);
 
   const handleToggle = () => {
     setCarouselToggle((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    axios.get(tab)
+        .then(response => {
+          const { data } = response.data;
+          setFilters([...filters, ...data]);
+          //console.log(filters);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+}, []);
+
+const showFilters = filters.length > 1;
+
+const cardsToRender = data.filter((card) =>
+  showFilters && selectedFilterIndex !== 0
+    ? card.genre.key === filters[selectedFilterIndex].key
+    : card
+);
 
 
 
@@ -51,10 +80,20 @@ function SectionProd({ title, data }) {
           {!carouselToggle ? "Collapse All" : "Show All"}
         </h4>
       </div>
+
+      {showFilters && (
+        <div className={styles.filterWrapper}>
+          <FilterTabs
+            filters={filters}
+            selectedFilterIndex={selectedFilterIndex}
+            setSelectedFilterIndex={setSelectedFilterIndex}
+          />
+        </div>
+      )}
     
         <div className={styles.cardsWrapper}>
             <div className={styles.wrapper}>
-              {data.map((ele) => (
+            {cardsToRender.map((ele) => (
                 <Card data={ele} />
               ))}
             </div>

@@ -40,6 +40,11 @@ function App() {
       <Hero />
       <Section  url={'https://qtify-backend-labs.crio.do/albums/top'} title={"Top Albums"}/>
       <Section  url={'https://qtify-backend-labs.crio.do/albums/new'} title={"New Albums"}/>
+      <Section  
+        url={'https://qtify-backend-labs.crio.do/songs'} 
+        tab={'https://qtify-backend-labs.crio.do/genres'}
+        title={"Songs"}
+      />
       
     </div>
   );
